@@ -1,4 +1,11 @@
 defmodule CatFinder.Generate do
+
+
+  @doc """
+  Generates `n` files in the current directory containing between `low` and
+  `high` number of words. Between 0 and 10 percent of these words in each file
+  will be 'cat'.
+  """
   def files(n, low, high) do
     for file_number <- 1..n do
       filename = "./#{file_number}.txt"
@@ -22,6 +29,11 @@ defmodule CatFinder.Generate do
     end
   end
 
+
+  @doc """
+  Returns a random word, i.e. a sequence of characters between 1 and 15
+  characters long.
+  """
   def random_word() do
     for(_ <- 1..:rand.uniform(15), do: Enum.random(?a..?z))
     |> to_string()
